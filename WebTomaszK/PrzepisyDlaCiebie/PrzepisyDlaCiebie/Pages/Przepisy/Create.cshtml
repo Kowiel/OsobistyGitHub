@@ -1,0 +1,66 @@
+﻿@page
+@model PrzepisyDlaCiebie.Pages.Przepisy.CreateModel
+
+
+
+<br />
+<h2 class="text-info">Dodanie Nowego Przepisu</h2>
+<br />
+
+<div class="border">
+    <form method="post" enctype="multipart/form-data">
+        <div class="container" style="padding:30px">
+            <div class="text-danger" style="color:red" asp-validation-summary="ModelOnly" ></div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <label asp-for="Przepis.NazwaPrzepisu"></label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="Przepis.NazwaPrzepisu" class="col-6" />
+                    </div>
+                    <span style="color:red" asp-validation-for="Przepis.NazwaPrzepisu"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <label asp-for="Przepis.Image" ></label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="Przepis.Image"  accept="image/png,image/jpg"/>
+                        <span asp-validation-for="Przepis.Image" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <label asp-for="Przepis.TrescPrzepisu"></label>
+                    </div>
+                    <div class="col-10">
+                        <textarea rows="4" asp-for="Przepis.TrescPrzepisu" class="form-control form-control-sm"></textarea>
+                    </div>
+                    <span style="color:red" asp-validation-for="Przepis.TrescPrzepisu"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <input type="submit" value="Create" class="btn btn-primary form-control" />
+                    </div>
+                    <div class="col-sm-3">
+                        <a asp-page="/Index" class="btn btn-success form-control">Return</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts
+{
+<partial name="_ValidationScriptsPartial"/>
+}

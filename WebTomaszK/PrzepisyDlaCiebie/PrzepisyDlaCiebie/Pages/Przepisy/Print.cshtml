@@ -1,0 +1,46 @@
+﻿@page
+@model PrzepisyDlaCiebie.Pages.Przepisy.PrintModel
+
+
+
+<br />
+<h1 class="text-info" style="text-align:center;font-weight:900">  @Model.Przepis.NazwaPrzepisu</h1>
+<br />
+
+<div class="border">
+        <div class="container" style="padding:10px; text-align:center">
+            
+                <div class="row">
+                    <div class="col-12">
+                        <br />
+                        <img style="max-width:1000px;max-height:1000px;" src="@("~/Images/"+Model.Przepis.NazwaZdjecia)" asp-append-version="true" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h4>
+                            Treść Przepisu 
+                        </h4>
+                    </div>
+                </div>
+
+          
+                <div class="row">
+                    <div class="col-12">
+                        <p>
+                            @Model.Przepis.TrescPrzepisu
+                        </p>
+                    </div>
+                </div>
+
+           
+                <div class="row">
+                    <div class="col-12">
+                        <a asp-page="/Index" class="btn btn-warning form-control">Do Przepisów</a>
+                    </div>
+                </div>
+            
+        
+</div>
+    </div>
+

@@ -1,0 +1,62 @@
+﻿@page
+@model PrzepisyDlaCiebie.Pages.Przepisy.IndexModel
+
+<br />
+<div class="container p-0 m-0">
+    <div class="row">
+    <div class="col-9">
+        <h2 class="text-info">Lista Przepisów</h2>
+    </div>
+    <div class="col-3">
+        <a asp-page="Create" class="btn btn-warning form-control">Dodaj Nowy Przepis</a>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-12 p-2 mt-2">
+            <form method="post">
+                @if(Model.Przepisy.Count()>0)
+                {
+                    <table class="table">
+                        <tr class="thead-dark">
+                            <th>
+                                <label asp-for="Przepisy.FirstOrDefault().Id"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Przepisy.FirstOrDefault().NazwaPrzepisu"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Przepisy.FirstOrDefault().NazwaZdjecia"></label>
+                            </th>
+                            <th>
+                                <label>Opcje</label>
+                            </th>
+                        </tr>
+                        @foreach(var item in Model.Przepisy)
+                        {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(x => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(x => item.NazwaPrzepisu)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(x => item.NazwaZdjecia)
+                        </td>
+                        <td>
+                            <a class="btn btn-success text-white" asp-page="Print" asp-route-id="@item.Id">Wyświetl</a>
+                            <a class="btn btn-info text-white" asp-page="Edit" asp-route-id="@item.Id">Edytuj</a>
+                            <button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Napewno Usunąć Ten Przepis')" class="btn btn-danger text-white">Usuń</button>
+                        </td>
+                    </tr>
+                        }
+                    </table>
+                }
+                else
+                {
+                    <p>Brak Przepisów </p>
+                }
+            </form>
+        </div>
+    </div>
+</div>
