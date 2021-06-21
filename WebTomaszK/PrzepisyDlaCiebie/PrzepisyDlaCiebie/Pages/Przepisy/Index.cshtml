@@ -25,9 +25,6 @@
                                 <label asp-for="Przepisy.FirstOrDefault().NazwaPrzepisu"></label>
                             </th>
                             <th>
-                                <label asp-for="Przepisy.FirstOrDefault().NazwaZdjecia"></label>
-                            </th>
-                            <th>
                                 <label>Opcje</label>
                             </th>
                         </tr>
@@ -39,9 +36,6 @@
                         </td>
                         <td>
                             @Html.DisplayFor(x => item.NazwaPrzepisu)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(x => item.NazwaZdjecia)
                         </td>
                         <td>
                             <a class="btn btn-success text-white" asp-page="Print" asp-route-id="@item.Id">Wyświetl</a>
